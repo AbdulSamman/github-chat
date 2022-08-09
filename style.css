@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: sans-serif;
+  background-color: #647c90;
+}
+h2,
+#username {
+  font-weight: bold;
+  margin-top: 2rem;
+}
+.repName {
+  font-weight: bold;
+  font-size: 2rem;
+  color: black;
+}
+form {
+  width: fit-content;
+}
+
+#userImg {
+  text-align: center;
+}
+img {
+  object-fit: contain;
+  margin-top: 2rem;
+}
+#username {
+  font-weight: bold;
+  font-size: 2rem;
+  font-family: "Staatliches", serif;
+  text-decoration: 1px underline gold;
+}
+
+@media (max-width: 768px) {
+  section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h2 {
+    text-align: center;
+  }
+  .personalInfo {
+    height: 10vh;
+  }
+}

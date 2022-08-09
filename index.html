@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <section class="d-flex justify-content-between">
+        <div
+          class="personalInfo d-flex gap-3 justify-content-center align-items-center"
+        >
+          <div id="userImg">
+            <img src="" alt="" />
+          </div>
+          <span id="username"></span>
+        </div>
+        <div>
+          <h2>Github Username Widget</h2>
+          <form action="#" class="d-flex">
+            <input
+              type="text"
+              name=""
+              id="inputuser"
+              class="form-control me-3"
+              value=""
+              placeholder="Github Username..."
+            />
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </section>
+
+      <div id="result" class="d-flex flex-column"></div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

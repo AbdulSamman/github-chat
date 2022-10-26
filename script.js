@@ -1,10 +1,13 @@
+import myKeys from "./security.js";
+
 const apiUrl = `http://api.github.com`;
-const id = `f978fc4f62ea603142aa`;
-const clientSecret = `7616e671c9a72e87ef7380e68ec1a876ac3322e5`;
-const input = document.getElementById("inputuser");
+const id = myKeys.GT_ID;
+const clientSecret = myKeys.GT_SECRET;
+const input = document.getElementById("inputUser");
 const button = document.querySelector("button");
 const img = document.querySelector("img");
-const userImg = document.getElementById("userImg");
+//const userImg = document.getElementById("userImg");
+
 async function getApi() {
   const users = `/users/${input.value}`;
   const resId = `/repos?client_id=${id}`;
@@ -21,16 +24,31 @@ async function getApi() {
     if (data.length > 1) {
       const githubResult = document.getElementById("result");
       githubResult.textContent = "";
-      data.map((x, index) => {
-        const todayDateToArr = new Date().toLocaleDateString().split("/");
-        console.log(todayDateToArr);
 
-        const repoDateToArr = new Date(x.pushed_at)
-          .toLocaleDateString()
-          .split("/");
-        const repoDate = todayDateToArr - repoDateToArr[index];
-        console.log(repoDateToArr);
+      data.map((x, index) => {
+        const date = new Date().toLocaleDateString("de-DE").split(".");
+        console.log(date);
+        const repoDate = new Date(x.pushed_at)
+          .toLocaleDateString("de-DE")
+          .split(".");
         console.log(repoDate);
+
+        let dateResult = date.map((ele, i) => {
+          return ele - repoDate[i];
+        });
+        // if (dateResult[0] == 0) {
+        //   dateResult[0] = "yes";
+        // }
+
+        const sumOfNull = dateResult.reduce((acc, cur) => acc + cur);
+        if (sumOfNull === 0) {
+          githubResult.innerHTML = "updated";
+        }
+        console.log(sumOfNull);
+        const repoDateToArr = new Date(x.pushed_at).toLocaleString("de-DE");
+
+        console.log("result", dateResult);
+
         if (index == 0) {
           img.src = x.owner.avatar_url;
           img.style.width = "6rem";
@@ -38,12 +56,19 @@ async function getApi() {
           img.style.borderRadius = "100%";
         }
         githubResult.innerHTML += `
-      <a href="${x.clone_url}" class="btn btn-outline-warning p-2 text-gray rounded-3 mt-3 d-flex justify-content-start">  
+      <a href="${x.clone_url}" class="btn btn-outline-warning p-2 text-gray rounded-3 mt-3 d-flex justify-content-between">
+     
       <div class="d-flex flex-column align-items-start">
       <p class="repName">${x.name}</p>
+    
       <span>${x.description}</span>
-      <time-ago> ${x.pushed_at}</time-ago>
-      </div></a>
+   
+      <time-ago> ${repoDateToArr}</time-ago>
+      </div>
+      <span>
+      ${dateResult}
+      </span>
+      </a>
         `;
       });
     } else {

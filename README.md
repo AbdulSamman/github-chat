@@ -3,7 +3,7 @@
 
 ```
 npm i
-node script.js
+
 ```
 
 https://abdulsamman.github.io/github-username-api/

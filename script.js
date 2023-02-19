@@ -1,4 +1,4 @@
-import myKeys from "./security.js";
+
 
 const apiUrl = `http://api.github.com`;
 const id = `f978fc4f62ea603142aa`;

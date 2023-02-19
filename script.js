@@ -1,8 +1,8 @@
 import myKeys from "./security.js";
 
 const apiUrl = `http://api.github.com`;
-const id = myKeys.GT_ID;
-const clientSecret = myKeys.GT_SECRET;
+const id = `f978fc4f62ea603142aa`;
+const clientSecret = `7616e671c9a72e87ef7380e68ec1a876ac3322e5`;
 const input = document.getElementById("inputUser");
 const button = document.querySelector("button");
 const img = document.querySelector("img");

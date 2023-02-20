@@ -1,7 +1,4 @@
-const myKeys = {
-  GT_ID: "f978fc4f62ea603142aa",
-  GT_SECRET: "7616e671c9a72e87ef7380e68ec1a876ac3322e5",
-};
+
 
 const apiUrl = `http://api.github.com`;
 const id = myKeys.GT_ID;

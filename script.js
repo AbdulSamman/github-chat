@@ -1,4 +1,9 @@
+// you need you GItHub-Key
 
+/*const myKey ={
+  GT_ID = 
+  GT_SECRET =
+}*/
 
 const apiUrl = `http://api.github.com`;
 const id = myKeys.GT_ID;
